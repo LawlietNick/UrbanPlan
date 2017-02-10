@@ -116,8 +116,7 @@ function urbanplan_sanitize_twitter_handler( $input ){
 
 function urbanplan_theme_create_page() {
     // Generate admin page
-    require_once( get_template_directory() . '/inc/templates/urbanplan-admin.php' );
-    
+    require_once( get_template_directory() . '/inc/templates/urbanplan-admin.php' );   
 }
 
 function urbanplan_settings_page() {
