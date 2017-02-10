@@ -57,10 +57,10 @@ function urbanplan_sidebar_options() {
 }
 
 function urbanplan_sidebar_name() {
-    $firstName = esc_attr( get_option( 'fist_name' ) );
+    $firstName = esc_attr( get_option( 'first_name' ) );
     $lastName = esc_attr( get_option( 'last_name' ) );
     
-    echo '<input type="text" name="first_name" value="'.$fistName.'" placeholder="First Name" />
+    echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" />
           <input type="text" name="last_name" value="'.$lastName.'" placeholder="Last Name" />';
 }
 
