@@ -4,8 +4,15 @@ Theme URI: http://wordpress.org/themes/twentythirteen
 Author: Niko Karppinen
 Author URI: https://linkedin.com/in/karppinenniko
 Description: It's time to have a plan
-Version: 0.0.0.1
+Version: 0.0.0.1 alpha
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, responsive, clean, minimal, sidebar, urban, custom admin options
 */
+
+
+
+.content-fluid {
+  width: 100%;
+  height: 100%;
+}

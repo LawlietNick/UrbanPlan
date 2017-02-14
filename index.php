@@ -1,23 +1,23 @@
 <?php get_header(); ?>
 
-<?php get_footer(); ?>
-
-
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
 
 <?php 
-	echo '<h1>Page</h1>';
+	if( have_posts() ):
+
+		while( have_posts() ): the_post();
+
+			the_title();
+
+			the_time('j. F Y');
+			the_category();
+
+			the_content();
+
+			the_tags();
+
+		endwhile;
+	
+	endif;
 ?>
 
-</body>
-</html>
+<?php get_footer(); ?>

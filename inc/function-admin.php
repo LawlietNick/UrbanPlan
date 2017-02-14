@@ -3,9 +3,9 @@
 /*
 
 @package urbanplan
-    --------------------
-         ADMIN PAGE
-    --------------------
+    --------------------------------------------
+      ADMIN PAGE
+    --------------------------------------------
 */
 
 function urbanplan_add_admin_page(){
@@ -15,7 +15,6 @@ function urbanplan_add_admin_page(){
 
     // Generate Admin Sub pages 
     add_submenu_page(  'lawlietnick_urbanplan', 'UrbanPlan Theme Options', 'General', 'manage_options', 'lawlietnick_urbanplan', 'urbanplan_theme_create_page' );
-    add_submenu_page(  'lawlietnick_urbanplan', 'UrbanPlan CSS Options', 'Custom CSS', 'manage_options', 'lawlietnick_urbanplan_css', 'urbanplan_theme_settings_page' );
 
     // Activate custom settings
     add_action( 'admin_init', 'urbanplan_custom_settings' );
@@ -23,6 +22,8 @@ function urbanplan_add_admin_page(){
 add_action( 'admin_menu', 'urbanplan_add_admin_page');
 
 function urbanplan_custom_settings(){
+
+    //Sidebar options
     register_setting( 'urbanplan-settings-group', 'first_name' );
     register_setting( 'urbanplan-settings-group', 'last_name' );
     register_setting( 'urbanplan-settings-group', 'nick_name' );
@@ -113,12 +114,7 @@ function urbanplan_sanitize_twitter_handler( $input ){
     return str_replace('@', '', sanitize_text_field( $input ));
 }
 
-
 function urbanplan_theme_create_page() {
     // Generate admin page
     require_once( get_template_directory() . '/inc/templates/urbanplan-admin.php' );   
-}
-
-function urbanplan_settings_page() {
-    // 
 }
