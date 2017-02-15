@@ -1,0 +1,138 @@
+.post-content {
+     blockquote {
+        &.classic {
+          position: relative;
+          display: inline-block;
+          margin: 50px 0;
+          width: 100%;
+          padding: 8px 120px;
+          -webkit-box-shadow: 0px 4px 6px 1px rgba(0,0,0,0.4);
+          -moz-box-shadow: 0px 4px 6px 1px rgba(0,0,0,0.4);
+          box-shadow: 0px 4px 6px 1px rgba(0,0,0,0.4);  
+          font-size: 1.6em;
+          line-height: 1.7em;
+          text-align: center;
+          &:before {
+            content: "\201C";
+            position: absolute;
+            top: 22px;
+            left: 0;
+            font-size: 5.556em;
+            color: lighten($color-dark, 80%);
+          }
+        }
+
+        &.stylish { 
+          float: right;
+          max-width: 45%;
+          margin-left: 1.2rem;
+          font-size: 1.8em;
+          line-height: 1.2em;
+          font-weight: $font-weight-bold;
+          background: -webkit-linear-gradient($color-text-effect, $color-text-effect-alt);
+          background: -o-linear-gradient($color-text-effect, $color-text-effect-alt);
+          background: linear-gradient($color-text-effect, $color-text-effect-alt);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          
+        }
+        &.twitter-tweet {
+          margin: 0 auto;
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+
+      .polaroid {
+        width: 70%;
+        margin: 0 auto;
+        a {
+          position:relative;
+          display: inline-block;
+          -webkit-transition: all $animation-duration/2 $transition-timing-function;
+          -moz-transition: all $animation-duration/2 $transition-timing-function;
+          transition: all $animation-duration/2 $transition-timing-function;
+          width: 100%;
+          padding: 20px 18px 20px 15px;
+          -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .4);
+          -moz-box-shadow: 0 4px 6px rgba(0,0,0,.4);
+          box-shadow: 0 4px 6px rgba(0,0,0,.4);
+          background: rgb(249, 249, 249);
+          text-align: center;
+          text-decoration: none;
+          color: $color-dark;
+
+          img {
+            display: inline-block;
+            margin: 0 0 5px 0;
+            width: 100%; 
+          }
+          p {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+          }
+          &:hover {
+            -webkit-box-shadow: 0 8px 12px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 8px 12px rgba(0,0,0,.3);
+            box-shadow: 0 8px 12px rgba(0,0,0,.3);
+            background: rgb(253, 253, 253);
+          }
+        } // .polaroid a
+      }
+} // .post-content
+
+
+/*
+.card {
+  flex-direction: column;
+  .card-img {
+    display: inline-block;
+    width: 100%;
+    figure {
+      margin: 0;
+      width: 100%;
+      display: inline-block;
+      overflow: hidden;
+      img {
+        display: inline-block;
+        margin: 0;
+        width: 100%;
+        -webkit-transform: rotate($animation-rotation ) scale($animation-zoom );
+        transform: rotate($animation-rotation ) scale($animation-zoom );
+        -webkit-transition: $animation-duration $transition-timing-function;
+        transition: $animation-duration $transition-timing-function ;
+        -webkit-backface-visibility: hidden;
+      }
+      &:hover {
+        img {
+          -webkit-transform: rotate(0) scale(1);
+          transform: rotate(0) scale(1);
+        }
+
+      }
+    } // figure
+  } // .card-img
+  .card-info {
+    border: 1px solid $color-subdued;
+    padding: 10px 25px 25px 25px;
+    h4 {
+      color: $color-dark;
+    }
+  }
+} // .card
+
+*/
+
+
+
+
+.button {
+  margin: 8px 10px;
+  padding: 7px 25px;
+  border: 1px solid black;
+  color: black;
+  &:visited {
+        color: black;
+      } 
+}

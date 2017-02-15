@@ -1,0 +1,116 @@
+// ********************
+//
+//      Variables
+// 
+// ********************
+
+// ********************
+// Colors
+// ********************
+$color-primary                               : #2f6690;
+$color-secondary                             : #3a7ca5; 
+$color-base                                  : #d9dcd6; 
+$color-highlight                             : #192d67; 
+$color-highlight-alt                         : #52259b; 
+
+$color-dark                                  : rgba(0,0,0,.8);
+$color-light                                 : rgb(255,255,255);
+
+$color-shade-amount                          : 10%;
+$color-lightening-amount                     : 5%;
+
+//
+// Coloring elements
+//
+$color-body-background                       : $color-light;
+$color-body-text                             : $color-dark;
+
+$color-body-link                             : $color-primary;
+$color-body-link-hover                       : $color-highlight;
+$color-body-link-visited                     : $color-secondary;
+
+$color-nav-background                        : $color-highlight;
+$color-nav-text                              : $color-light;
+$color-nav-link                              : $color-light;
+$color-nav-link-hover                        : $color-secondary;
+$color-nav-link-visited                      : $color-primary;
+
+$color-overlay                               : rgba(0,0,0,0.4);
+
+$color-text-effect                           : $color-highlight;
+$color-text-effect-alt                       : $color-highlight-alt;
+
+$color-subdued                               : $color-base;
+
+
+// Gradient 
+$color-gradient-one                          : $color-primary;
+$color-gradient-two                          : $color-secondary;
+
+// ********************
+// fonts
+// ********************
+@import 'fonts';
+
+$font-primary-family                        : 'Droid Serif', serif;
+$font-secondary-family                      : 'Oswald', sans-serif;
+
+$font-base-size                             : 18px;
+$line-height-base                           : 1.389em;
+$letter-spacing                             : 0em;
+
+
+$font-size-article                          : 1.167em;
+$line-height-article                        : 1.833em;
+$letter-spacing-article                     : 0em;
+
+$font-size-h1                               : 2.441em;
+$font-size-h2                               : 1.953em;
+$font-size-h3                               : 1.563em;
+$font-size-h4                               : 1.25em;
+
+$line-height-heading                        : 1.414;
+
+$font-weight-regular                        : 400;
+$font-weight-light                          : 300;
+$font-weight-bold                           : 700;
+
+
+// Special sections
+$line-height-card-title                     : 1.167em;
+
+// ********************
+// Measurements
+// ********************
+$max-content-width                          : 38em;
+$max-element-width                          : 70vw;
+$margin-bottom-heading                      : $line-height-heading;
+$navigation-height                          : 40px;
+$navigation-mobile-width                    : 240px;
+
+
+
+$z-index-highest                            : 1000;
+$z-index-middle                             : 500;
+$z-index-low                                : 0;
+
+// ********************
+// Animations
+// ********************
+$transition-timing-function                 : ease-in-out !default;
+$animation-delay                            : 0s;
+$animation-duration                         : .4s;
+
+$animation-zoom                             : 1.2;
+$animation-rotation                         : 16deg;
+
+
+
+// ********************
+// Breakpoints
+// ********************
+
+$resolution-mobile                              : 320px;
+$resolution-tablet                              : 768px;
+$resolution-desktop                             : 1024px;
+$resolution-desktop-hq                          : 1200px;   

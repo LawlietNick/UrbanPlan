@@ -11,8 +11,14 @@
 
 <body>
 
+
+
 <div class="content-fluid">
+	<header class="site-header">
+		<div class="logo">
+			<a href="#">Page title</a>
+		</div>
+		<a href="#0" class="hamburger"><span></span></a>
+	</header>
 
-
-
-<?php wp_nav_menu( array('theme_location' => 'primary')); ?>
+	<main class="site-main">

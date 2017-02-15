@@ -10,9 +10,6 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, responsive, clean, minimal, sidebar, urban, custom admin options
 */
 
-
-
-.content-fluid {
-  width: 100%;
-  height: 100%;
-}
+@import 'partials/variables';
+@import 'partials/base';
+@import 'partials/effects';
