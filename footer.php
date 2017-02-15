@@ -1,5 +1,5 @@
 
-</div>
+</div><!-- .content-fluid -->
 
 <nav class="nav-wrap">
     <div class="nav-container">
@@ -15,6 +15,10 @@
         </div>
     </div>
 </div>
+
+
+<!-- overlay for body when navigation is visible -->
+<div class="overlay"></div> 
 
 <?php wp_footer(); ?>
 </body>
