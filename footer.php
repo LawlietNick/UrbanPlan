@@ -14,11 +14,11 @@
             ?>
         </div>
     </div>
-</div>
-
+</nav>
 
 <!-- overlay for body when navigation is visible -->
-<div class="overlay"></div> 
+<div class="overlay"></div>
+
 
 <?php wp_footer(); ?>
 </body>
