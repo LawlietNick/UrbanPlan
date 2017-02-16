@@ -27,6 +27,13 @@ jQuery(document).ready(function($){
         $('.hamburger').toggleClass('nav-is-visible');
 		$('.nav-wrap').toggleClass('nav-is-visible');
 		$('.container-fluid').toggleClass('nav-is-visible');
+        if (scrollDisabled) {
+            enableScroll();
+            scrollDisabled = false;
+        } else {
+            disableScroll();
+            scrollDisabled = true;
+        }
     });
 
 

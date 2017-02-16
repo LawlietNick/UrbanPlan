@@ -401,59 +401,6 @@ header.top.nav-is-visible {
         color: rgba(13, 13, 13, 0.8);
         background-color: #ccd0c8; }
 
-.card-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-.card-listitem {
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 1 1 25%;
-  min-width: 20rem;
-  max-width: 50%;
-  padding: 10px; }
-
-.card {
-  background: #fff;
-  border-radius: .5em;
-  border: .05em solid #ccc;
-  color: #333;
-  display: inline-block;
-  max-width: 20em;
-  vertical-align: top; }
-
-.card-header {
-  background: currentColor;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-  padding: 10px; }
-
-.card-title {
-  color: #fff;
-  margin: 0; }
-
-.card-image img {
-  width: 100%; }
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-  padding: 20px; }
-  .card-body p {
-    flex: 1 0 auto; }
-
-.card-footer {
-  background: #eee;
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
-  border-top: inherit;
-  padding: 1em; }
-
 .post-content blockquote.classic {
   position: relative;
   display: inline-block;
