@@ -7,9 +7,101 @@ Description: It's time to have a plan
 Version: 0.0.0.1 alpha
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: urbanplan
 Tags: blog, responsive, clean, minimal, sidebar, urban, custom admin options
 */
 
-@import 'partials/variables';
-@import 'partials/base';
-@import 'partials/effects';
+//--------------------------------------------------------------
+// TABLE OF CONTENTS:
+//--------------------------------------------------------------
+// 1.0 First loads (Variables and Normalize)
+// 2.0 Accessibility
+// 3.0 Alignments
+// 4.0 Clearings
+// 5.0 Typography
+// 6.0 Forms
+// 7.0 Formatting
+// 8.0 Lists
+// 9.0 Tables
+// 10.0 Links
+// 11.0 Featured Image Hover
+// 12.0 Navigation
+// 13.0 Layout
+//    13.1 Header
+//    13.2 Front Page
+//    13.3 Regular Content
+//    13.4 Posts
+//    13.5 Pages
+//    13.6 Footer
+// 14.0 Comments
+// 15.0 Widgets
+// 16.0 Media
+//    16.1 Galleries
+// 17.0 Customizer
+// 18.0 SVGs Fallbacks
+// 19.0 Media Queries
+// 20.0 Print
+
+
+
+
+
+//--------------------------------------------------------------
+// 1.0 - First loads
+//--------------------------------------------------------------
+
+@import 'variables'; // For colors and sizes check this file first
+
+@import 'normalize';
+
+// -------------------------------------------------------------
+// 5.0 - Typography
+// -------------------------------------------------------------
+@import 'partials/typography';
+
+
+// -------------------------------------------------------------
+// Elements
+// -------------------------------------------------------------
+@import 'partials/elements';
+
+
+
+
+
+// -------------------------------------------------------------
+// Alignments
+// -------------------------------------------------------------
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+
+// -------------------------------------------------------------
+// Media
+// -------------------------------------------------------------
+
+// Make sure embeds and iframes fit their containers.
+embed,
+iframe,
+object {
+	max-width: 100%;
+}

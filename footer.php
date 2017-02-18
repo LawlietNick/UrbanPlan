@@ -1,25 +1,23 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package UrbanPlan
+ */
 
-</div><!-- .content-fluid -->
+?>
 
-<nav class="nav-wrap">
-    <div class="nav-container">
-        <div class="nav-scroll">    
-            <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'primary',
-                    'container' => false,
-                    'menu_class' => 'navigation test',
-                    'walker' => new UrbanPlan_Walker_Nav_Primary()
-                ) );	
-            ?>
-        </div>
-    </div>
-</nav>
+	</div><!-- #content -->
 
-<!-- overlay for body when navigation is visible -->
-<div class="overlay"></div>
-
+	<footer id="colophon" class="site-footer" role="contentinfo">
+	</footer><!-- #colophon -->
+</div><!-- #page -->
 
 <?php wp_footer(); ?>
+
 </body>
 </html>

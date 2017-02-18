@@ -52,7 +52,6 @@ $color-gradient-two                          : $color-secondary;
 // ********************
 // fonts
 // ********************
-@import 'fonts';
 
 $font-primary-family                        : 'Droid Serif', serif;
 $font-secondary-family                      : 'Oswald', sans-serif;
@@ -112,7 +111,7 @@ $animation-rotation                         : 16deg;
 // Breakpoints
 // ********************
 
-$resolution-mobile                              : 320px;
-$resolution-tablet                              : 768px;
-$resolution-desktop                             : 1024px;
-$resolution-desktop-hq                          : 1200px;   
+$resolution-mobile                           : 320px;
+$resolution-tablet                           : 768px;
+$resolution-desktop                          : 1024px;
+$resolution-desktop-hq                       : 1200px;   
