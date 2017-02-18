@@ -81,6 +81,7 @@ body {
 /* Basic Typography */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
+  display: inline-block;
   font-family: "Oswald", sans-serif;
   line-height: 1.414;
   margin: 0 0 1.414 0;
@@ -131,7 +132,9 @@ p {
 
 .grid {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start; }
 
 .col-1 {
   display: flex;
@@ -169,24 +172,27 @@ header.site-header {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  background: -moz-radial-gradient(center, ellipse cover, #2f6690 0%, #3a7ca5 100%);
-  /* ff3.6+ */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #2f6690), color-stop(100%, #3a7ca5));
-  /* safari4+,chrome */
-  background: -webkit-radial-gradient(center, ellipse cover, #2f6690 0%, #3a7ca5 100%);
-  /* safari5.1+,chrome10+ */
-  background: -o-radial-gradient(center, ellipse cover, #2f6690 0%, #3a7ca5 100%);
-  /* opera 11.10+ */
-  background: -ms-radial-gradient(center, ellipse cover, #2f6690 0%, #3a7ca5 100%);
-  /* ie10+ */
-  background: radial-gradient(ellipse at center, #2f6690 0%, #3a7ca5 100%);
-  /* w3c */
   transform: translateY(0);
   margin: 0;
   width: 100%;
   height: 40px;
   padding: 0;
-  background-color: #192d67; }
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  -ms-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out; }
+  header.site-header.fixed {
+    background: #192d67;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #192d67 0%, #52259b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #192d67 0%, #52259b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #192d67 0%, #52259b 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-highlight', endColorstr='$color-highlight-alt',GradientType=1 );
+    /* IE6-9 */ }
   header.site-header.is-hidden {
     transform: translateY(-100%); }
   header.site-header::before {
@@ -264,7 +270,7 @@ body.noscroll {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); }
+    background-color: rgba(0, 0, 0, 0.4); }
 
 header.top.nav-is-visible {
   position: fixed;
@@ -273,7 +279,7 @@ header.top.nav-is-visible {
   left: 0px; }
 
 .hamburger.nav-is-visible span {
-  background-color: rgba(255, 255, 255, 0); }
+  background-color: white; }
   .hamburger.nav-is-visible span::before {
     -webkit-transform: translateY(0) rotate(-45deg);
     -moz-transform: translateY(0) rotate(-45deg);
@@ -327,7 +333,8 @@ header.top.nav-is-visible {
           display: block;
           text-align: right;
           padding: 10px 10px;
-          border-bottom: 1px solid #1e367c; }
+          border-bottom: 1px solid #1e367c;
+          color: white; }
 
 .content.nav-is-visible {
   position: absolute;
@@ -352,9 +359,9 @@ header.top.nav-is-visible {
       .post .post-header .cat-links a {
         display: inline-block;
         margin: 0;
-        border-bottom: 2px solid #192d67; }
+        border-bottom: 1px solid #192d67; }
         .post .post-header .cat-links a:hover {
-          border-bottom: 2px solid #52259b; }
+          border-bottom: 1px solid #52259b; }
   .post .post-content {
     display: flex;
     flex-direction: column;
@@ -362,8 +369,10 @@ header.top.nav-is-visible {
     margin-top: 1.5em;
     word-break: break-word;
     word-wrap: break-word; }
-    .post .post-content a {
+    .post .post-content a:not([class]) {
       text-decoration: underline; }
+      .post .post-content a:not([class]):hover {
+        text-decoration: none; }
     .post .post-content p {
       padding: 0 5px; }
     .post .post-content p + p {
@@ -374,11 +383,27 @@ header.top.nav-is-visible {
       max-width: 100%;
       margin: 1em 0; }
     .post .post-content img {
-      margin: .5em 0 1.5em 0;
-      max-width: 100%; }
+      position: relative;
+      display: block;
+      margin: .5em auto 1.5em auto;
+      max-width: 100%;
+      width: calc(100% - 10px);
+      height: auto;
+      background-color: #d9dcd6;
+      line-height: 2;
+      text-align: center;
+      font-size: .9rem; }
+      .post .post-content img:before {
+        content: "Sorry, the image below is broken :(";
+        display: block;
+        margin-bottom: .5rem; }
+      .post .post-content img:after {
+        content: "(url: " attr(src) ")";
+        display: block; }
   .post .post-featured-img img {
     display: inline-flex;
     max-width: 100%;
+    width: 100%;
     height: auto; }
   .post .tag-links {
     display: flex;
@@ -400,6 +425,84 @@ header.top.nav-is-visible {
       .post .tag-links a:hover, .post .tag-links a:focus, .post .tag-links a:active {
         color: rgba(13, 13, 13, 0.8);
         background-color: #ccd0c8; }
+
+.card-list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 100%; }
+
+.card-listitem {
+  display: flex;
+  min-width: 20rem;
+  max-width: 50%;
+  padding: 10px; }
+
+.card {
+  background: #fff;
+  border-radius: .5em;
+  border: .05em solid #ccc;
+  color: #333;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top; }
+
+.card-header {
+  background: currentColor;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  padding: 10px; }
+
+.card-title {
+  color: #fff;
+  margin: 0; }
+
+.card-image img {
+  width: 100%; }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  padding: 20px; }
+  .card-body p {
+    flex: 1 0 auto; }
+
+.card-footer {
+  background: #eee;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border-top: inherit;
+  padding: 1em; }
+
+@media only screen and (min-device-width: 768px) {
+  body {
+    font-size: 21px; }
+  .post {
+    line-height: 1.833em;
+    letter-spacing: 0em; }
+    .post .post-header {
+      max-width: 38em;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 10px; }
+    .post .post-content {
+      max-width: 38em;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 10px; }
+    .post .tag-links {
+      max-width: 38em;
+      width: 100%;
+      margin: 1.5em auto 0;
+      padding: 0 10px; } }
+
+@media only screen and (min-device-width: 1200px) {
+  .post-header {
+    margin-top: -50px; } }
 
 .post-content blockquote.classic {
   position: relative;

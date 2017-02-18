@@ -41,6 +41,7 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
+  display: inline-block;
   font-family: $font-secondary-family;
   line-height: $line-height-heading;
   margin: 0 0 $margin-bottom-heading 0;
@@ -112,6 +113,8 @@ p {
 .grid {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 
@@ -163,19 +166,28 @@ header.site-header {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  background: -moz-radial-gradient(center, ellipse cover, $color-gradient-one 0%, $color-gradient-two 100%); /* ff3.6+ */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $color-gradient-one), color-stop(100%, $color-gradient-two)); /* safari4+,chrome */
-  background:-webkit-radial-gradient(center, ellipse cover, $color-gradient-one 0%, $color-gradient-two 100%); /* safari5.1+,chrome10+ */
-  background: -o-radial-gradient(center, ellipse cover, $color-gradient-one 0%, $color-gradient-two 100%); /* opera 11.10+ */
-  background: -ms-radial-gradient(center, ellipse cover, $color-gradient-one 0%, $color-gradient-two 100%); /* ie10+ */
-  background:radial-gradient(ellipse at center, $color-gradient-one 0%, $color-gradient-two 100%); /* w3c */
-
   transform: translateY(0);
   margin: 0;
   width: 100%;
   height: $navigation-height;
   padding: 0;
-  background-color: $color-nav-background;
+
+  // Test if the animation works
+  -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+
+
+  &.fixed {
+    background: $color-highlight; /* Old browsers */
+    background: -moz-linear-gradient(left,  $color-highlight 0%, $color-highlight-alt 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  $color-highlight 0%,$color-highlight-alt 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  $color-highlight 0%,$color-highlight-alt 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-highlight', endColorstr='$color-highlight-alt',GradientType=1 ); /* IE6-9 */
+  }
+  
 
   &.is-hidden {
     transform: translateY(-100%);
@@ -283,7 +295,7 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, .7);
+      background-color: $color-overlay;
     }
   } 
 }
@@ -300,7 +312,7 @@ header.top {
 .hamburger {
   &.nav-is-visible {
     span {
-      background-color: rgba(255, 255, 255, 0);
+      background-color: $color-nav-link;
       &::before {
         -webkit-transform: translateY(0) rotate(-45deg);
         -moz-transform: translateY(0) rotate(-45deg);
@@ -337,7 +349,8 @@ header.top {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     will-change: overflow;
-    
+
+
     .nav-container {
       display: block;
       width: inherit;
@@ -368,6 +381,7 @@ header.top {
             text-align: right;
             padding: 10px 10px;
             border-bottom: 1px solid lighten($color-nav-background, 5%);
+            color: $color-light;
           }
         }
       }
@@ -409,9 +423,9 @@ header.top {
       a {
           display: inline-block;
           margin: 0;
-          border-bottom: 2px solid $color-text-effect;
+          border-bottom: 1px solid $color-text-effect;
           &:hover {
-             border-bottom: 2px solid $color-text-effect-alt;
+             border-bottom: 1px solid $color-text-effect-alt;
           }
         }
     }
@@ -424,7 +438,14 @@ header.top {
     word-break: break-word;
     word-wrap: break-word;
     a {
+      &:not([class]){
         text-decoration: underline;
+        
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
     }
 
     p {
@@ -445,14 +466,33 @@ header.top {
         margin: 1em 0;
     }
      img {
-        margin: .5em 0 1.5em 0;
+        position: relative;
+        display: block;
+        margin: .5em auto 1.5em auto; 
         max-width: 100%;
-     }
+        width: calc(100% - 10px);
+        height: auto;
+        background-color: $color-subdued;
+        line-height: 2;
+        text-align: center;
+        font-size: .9rem;
+
+        &:before {
+          content: "Sorry, the image below is broken :(";
+          display: block;
+          margin-bottom: .5rem;
+        }
+        &:after {
+          content: "(url: " attr(src) ")";
+          display: block;
+        } 
+     }//img
   }
   .post-featured-img {
     img {
         display: inline-flex;
         max-width: 100%;
+        width: 100%;
         height: auto;
     }
   } // .post-featured-img
@@ -484,3 +524,117 @@ header.top {
 
 
 
+// Card list
+
+.card-list {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+.card-listitem {
+  display: flex;
+  min-width: 20rem;
+  max-width: 50%;
+  padding: 10px; 
+}
+
+.card {
+  background: #fff;
+  border-radius: .5em;
+  border: .05em solid #ccc;
+  color: #333;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.card-header {
+  background: currentColor; // Get color from `.card` or any modifiers
+  border-top-left-radius: inherit; // inherit border-radius from `.card`
+  border-top-right-radius: inherit; // inherit border-radius from `.card`
+  padding: 10px;
+}
+
+.card-title {
+  color: #fff;
+  margin: 0;
+}
+
+.card-image {
+  img {
+      width: 100%;
+  }
+}
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding: 20px;
+     p {
+      flex: 1 0 auto; 
+    }
+}
+
+.card-footer {
+  background: #eee;
+  border-bottom-left-radius: inherit; // inherit border-radius from `.card`
+  border-bottom-right-radius: inherit; // inherit border-radius from `.card`
+  border-top: inherit; // inherit border from `.card`
+  padding: 1em;
+}
+
+
+// END Card list
+
+
+
+// Media queries
+
+@media only screen and (min-device-width: $resolution-tablet) {
+  body {
+    font-size: 21px;
+  }
+  
+  .post {
+    //font-size: $font-size-article;
+    line-height: $line-height-article;
+    letter-spacing: $letter-spacing-article;
+
+    .post-header {
+        max-width: $max-content-width;
+        width: 100%;
+        margin: 0 auto;
+
+        padding: 0 10px;
+    } // .post-header
+    .post-content {
+        max-width: $max-content-width;
+        width: 100%;
+        margin: 0 auto;
+
+        padding: 0 10px;
+    } // .post-content
+    .tag-links{
+        max-width: $max-content-width;
+        width: 100%;
+        margin: 1.5em auto 0;
+
+        padding: 0 10px;
+    }
+  } // .post
+
+} // min-device-width: $resolution-tablet
+
+
+@media only screen and (min-device-width: $resolution-desktop-hq ) {
+  .post-header {
+    margin-top: -50px;
+  }
+}// min-device-width: $resolution-desktop-hq
