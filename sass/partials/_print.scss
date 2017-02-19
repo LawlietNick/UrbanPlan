@@ -1,0 +1,38 @@
+// -------------------------------------------------------------
+// 20.0 Print
+// -------------------------------------------------------------
+
+@media print {
+
+
+
+	// Font sizes	
+	body {
+		font-size: 12pt;
+	}
+
+	h1 {
+		font-size: 24pt;
+	}
+
+	h2 {
+		font-size: 22pt;
+	}
+
+	h3 {
+		font-size: 17pt;
+	}
+
+	h4 {
+		font-size: 12pt;
+	}
+
+	h5 {
+		font-size: 11pt;
+	}
+
+	h6 {
+		font-size: 12pt;
+	}
+
+} // @media print

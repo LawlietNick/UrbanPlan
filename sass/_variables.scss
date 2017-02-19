@@ -45,6 +45,15 @@ $color-divider-background                    : $color-base;
 $color-subdued                               : $color-base;
 
 
+
+$color-h1                                    : $color-text-effect;
+$color-h2                                    : $color-text-effect;
+$color-h3                                    : $color-text-effect;
+$color-h4                                    : $color-text-effect;
+$color-h5                                    : $color-text-effect;
+$color-h6                                    : $color-text-effect;
+
+
 // Gradient 
 $color-gradient-one                          : $color-primary;
 $color-gradient-two                          : $color-secondary;
@@ -69,12 +78,22 @@ $font-size-h1                               : 2.441em;
 $font-size-h2                               : 1.953em;
 $font-size-h3                               : 1.563em;
 $font-size-h4                               : 1.25em;
+$font-size-h5                               : 0.85em;
+$font-size-h6                               : 1em;
 
 $line-height-heading                        : 1.414;
 
 $font-weight-regular                        : 400;
 $font-weight-light                          : 300;
 $font-weight-bold                           : 700;
+
+
+$font-weight-h1                             : $font-weight-bold;
+$font-weight-h2                             : $font-weight-bold;
+$font-weight-h3                             : $font-weight-bold;
+$font-weight-h4                             : $font-weight-bold;
+$font-weight-h5                             : $font-weight-bold;
+$font-weight-h6                             : $font-weight-bold;
 
 
 // Special sections
@@ -84,7 +103,7 @@ $line-height-card-title                     : 1.167em;
 // Measurements
 // ********************
 $max-content-width                          : 38em;
-$max-element-width                          : 70vw;
+$max-content-title-width                    : 940px;
 $margin-bottom-heading                      : $line-height-heading;
 $navigation-height                          : 40px;
 $navigation-mobile-width                    : 280px;

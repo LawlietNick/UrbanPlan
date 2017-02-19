@@ -1,0 +1,18 @@
+// -------------------------------------------------------------
+// 10.0 Links
+// -------------------------------------------------------------
+
+a {
+	color: $color-body-link;
+	text-decoration: none;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	color: $color-body-link-hover;
+	outline: 0;
+}

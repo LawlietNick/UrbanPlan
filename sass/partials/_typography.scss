@@ -43,17 +43,16 @@
 
 
 
-
 body,
 button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 1.5;
+	color: $color-body-text;
+	font-family: $font-primary-family;
+	font-size: $font-base-size;
+	font-weight: $font-weight-regular;
+	line-height: $line-height-base;
 }
 
 h1,
@@ -63,10 +62,62 @@ h4,
 h5,
 h6 {
 	clear: both;
+	line-height: $line-height-heading;
+	margin: 0 0 0.75em;
+	padding: 1.5em 0 0;
+	font-family: $font-secondary-family;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	padding-top: 0;
+}
+
+h1 {
+	font-size: $font-size-h1;
+	font-weight: $font-weight-h1;
+	color: $color-h1;
+}
+
+h2 {
+	font-size: $font-size-h2;
+	font-weight: $font-weight-h2;
+	color: $color-h2;
+}
+
+h3 {
+	font-size: $font-size-h3;
+	font-weight: $font-weight-h3;
+	color: $color-h3;
+}
+
+h4 {
+	font-size: $font-size-h4;
+	font-weight: $font-weight-h4;
+	color: $color-h4;
+}
+
+h5 {
+	font-size: $font-size-h5;
+	font-weight: $font-weight-h5;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: $color-h5;
+}
+
+h6 {
+	font-size: $font-size-h6; 
+	font-weight: $font-weight-h6;
+	color: $color-h6;
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin: 0 0 1.5em;
+	padding: 0;
 }
 
 dfn,
@@ -77,7 +128,21 @@ i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	color: #666;
+	font-size: 18px;
+	font-size: 1.125rem;
+	font-style: italic;
+	line-height: 1.7;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+blockquote cite {
+	display: block;
+	font-style: normal;
+	font-weight: 600;
+	margin-top: 0.5em;
 }
 
 address {
@@ -113,10 +178,27 @@ acronym {
 
 mark,
 ins {
-	background: #fff9c0;
+	background: #eee;
 	text-decoration: none;
 }
 
 big {
 	font-size: 125%;
+}
+
+blockquote {
+	quotes: "" "";
+}
+
+q {
+	quotes: "“" "”" "‘" "’";
+}
+
+blockquote:before,
+blockquote:after {
+	content: "";
+}
+
+:focus {
+	outline: none;
 }

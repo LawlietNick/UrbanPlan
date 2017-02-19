@@ -30,7 +30,7 @@ u(".overlay").on("click", function (e) {
     u(".container-fluid").toggleClass("nav-is-visible");
 });
 
-
+/*
 var headerElement = document.getElementById("header");
 
 function headerBGOpacity() {
@@ -46,3 +46,4 @@ window.addEventListener("scroll", function () {
     headerBGOpacity();
 }, false);
 
+*/
