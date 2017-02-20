@@ -12,22 +12,18 @@ if ( ! function_exists( 'urbanplan_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function urbanplan_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
+	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
+		esc_html( get_the_date() )
 	);
 
+	// I don't want to have Posten on text before the date
 	$posted_on = sprintf(
 		esc_html_x( 'Posted on %s', 'post date', 'urbanplan' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+	); 
 
 	$byline = sprintf(
 		esc_html_x( 'by %s', 'post author', 'urbanplan' ),
@@ -120,3 +116,20 @@ function urbanplan_category_transient_flusher() {
 }
 add_action( 'edit_category', 'urbanplan_category_transient_flusher' );
 add_action( 'save_post',     'urbanplan_category_transient_flusher' );
+
+
+
+
+
+// MY OWN :D
+
+function urbanplan_get_tags () {
+	if ( 'post' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', esc_html__( ' ', 'urbanplan' ) );
+		if ( $tags_list ) {
+			printf( '<span class="tags-links">' . '</span>', $tags_list ); // WPCS: XSS OK.
+		}
+	}
+}
