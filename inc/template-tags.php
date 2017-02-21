@@ -7,11 +7,11 @@
  * @package UrbanPlan
  */
 
-if ( ! function_exists( 'urbanplan_posted_on' ) ) :
+if ( ! function_exists( 'urbanplan_post_time' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function urbanplan_posted_on() {
+function urbanplan_post_time() {
 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
 	$time_string = sprintf( $time_string,
@@ -21,56 +21,28 @@ function urbanplan_posted_on() {
 
 	// I don't want to have Posten on text before the date
 	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'urbanplan' ),
+		esc_html_x( '%s', 'post date', 'urbanplan' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	); 
 
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'urbanplan' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
-
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-
+	echo $posted_on;
+	// echo '<span class="posted-on">' . $posted_on . '</span>'; OLD STYLE
 }
 endif;
 
-if ( ! function_exists( 'urbanplan_entry_footer' ) ) :
+if ( ! function_exists( 'urbanplan_post_categories' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function urbanplan_entry_footer() {
+function urbanplan_post_categories() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'urbanplan' ) );
+		$categories_list = get_the_category_list( esc_html__( ' ', 'urbanplan' ) );
 		if ( $categories_list && urbanplan_categorized_blog() ) {
 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'urbanplan' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'urbanplan' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'urbanplan' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
 	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		/* translators: %s: post title */
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'urbanplan' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
-		echo '</span>';
-	}
-
-	edit_post_link(
-		sprintf(
-			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'urbanplan' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
 }
 endif;
 
@@ -121,15 +93,14 @@ add_action( 'save_post',     'urbanplan_category_transient_flusher' );
 
 
 
-// MY OWN :D
-
-function urbanplan_get_tags () {
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ' ', 'urbanplan' ) );
+if ( ! function_exists( 'urbanplan_post_tags' ) ) :
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ */
+function urbanplan_post_tags() {
+	$tags_list = get_the_tag_list( '', __( ' ', 'urbanplan' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<div class="tags-links">' . __( '%1$s', 'urbanplan' ) . '</div>', $tags_list );
 		}
-	}
 }
+endif;
