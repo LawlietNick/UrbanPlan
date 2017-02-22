@@ -282,8 +282,8 @@ h5,
 h6 {
   clear: both;
   line-height: 1.414;
-  margin: 0 0 0.75em;
-  padding: 1.5em 0 0;
+  margin: 0 0 1.414 0;
+  padding: 0;
   font-family: "Oswald", sans-serif; }
 
 h1:first-child,
@@ -457,15 +457,12 @@ td:last-child {
 
 a {
   color: #2f6690;
-  text-decoration: none; }
-
-a:focus {
-  outline: thin dotted; }
-
-a:hover,
-a:active {
-  color: #192d67;
+  text-decoration: none;
   outline: 0; }
+  a:focus {
+    outline: thin dotted; }
+  a:hover, a:active {
+    color: #192d67; }
 
 html {
   -webkit-box-sizing: border-box;
@@ -492,6 +489,47 @@ body {
   max-width: 700px;
   padding-left: 2em;
   padding-right: 2em; }
+
+header.site-header {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  top: 0;
+  left: 0;
+  transform: translateY(0);
+  margin: 0;
+  width: 100%;
+  height: 40px;
+  padding: 0;
+  border: 1px solid green;
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  -ms-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out; }
+  header.site-header.fixed {
+    background: #192d67;
+    background: -moz-linear-gradient(left, #192d67 0%, #52259b 100%);
+    background: -webkit-linear-gradient(left, #192d67 0%, #52259b 100%);
+    background: linear-gradient(to right, #192d67 0%, #52259b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-highlight', endColorstr='$color-highlight-alt',GradientType=1 ); }
+  header.site-header.is-hidden {
+    transform: translateY(-100%); }
+  header.site-header::before {
+    /* never visible - this is used in jQuery to check the current MQ */
+    display: none;
+    content: 'mobile'; }
+  header.site-header .site-branding {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between; }
+  header.site-header .logo {
+    display: flex;
+    margin: auto 0 auto 10px; }
+    header.site-header .logo a {
+      color: white;
+      vertical-align: middle; }
 
 img,
 video {

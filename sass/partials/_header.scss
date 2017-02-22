@@ -1,0 +1,58 @@
+
+header.site-header {
+  position: fixed;
+  z-index: $z-index-highest;
+  display: flex;
+  top: 0;
+  left: 0;
+  transform: translateY(0);
+  margin: 0;
+  width: 100%;
+  height: $navigation-height;
+  padding: 0;
+
+  border: 1px solid green;
+
+  // Test if the animation works
+  -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+
+
+  &.fixed {
+    background: $color-highlight; // Old browsers
+    background: -moz-linear-gradient(left,  $color-highlight 0%, $color-highlight-alt 100%); // FF3.6-15
+    background: -webkit-linear-gradient(left,  $color-highlight 0%,$color-highlight-alt 100%); // Chrome10-25,Safari5.1-6
+    background: linear-gradient(to right,  $color-highlight 0%,$color-highlight-alt 100%); // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-highlight', endColorstr='$color-highlight-alt',GradientType=1 ); // IE6-9
+  }
+  
+
+  &.is-hidden {
+    transform: translateY(-100%);
+  }
+
+  &::before {
+    /* never visible - this is used in jQuery to check the current MQ */
+    display: none;
+    content: 'mobile';
+  }
+
+  .site-branding {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    margin: auto 0 auto 10px;
+    a {
+        color: $color-nav-link;
+        vertical-align: middle;
+    }
+  }
+}
