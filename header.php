@@ -22,7 +22,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header" role="banner" style="background-color: rgba(49, 75, 136, 0)">
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) : ?>
