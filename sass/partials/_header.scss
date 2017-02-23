@@ -45,9 +45,10 @@ header.site-header {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
+    height: inherit;
   }
 
-  .logo {
+  .site-title {
     display: flex;
     margin: auto 0 auto 10px;
     a {

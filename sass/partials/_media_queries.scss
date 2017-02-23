@@ -1,0 +1,35 @@
+@media only screen and (min-device-width: $resolution-tablet) { 
+    body {
+        font-size: 1.167em;
+    }
+
+    article.post {
+        line-height: $line-height-article;
+        letter-spacing: $letter-spacing-article;
+
+        .post-header {
+            max-width: $max-content-width;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 10px;
+        } // .post-header
+        .post-content {
+            max-width: $max-content-width;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 10px;
+        } // .post-content
+        .tags-links{
+            max-width: $max-content-width;
+            width: 100%;
+            margin: 1.5em auto 0;
+
+            padding: 0 10px;
+        } // .tags-links
+    } // .post
+} // min-device-width: $resolution-tablet
+
+
+
+
+

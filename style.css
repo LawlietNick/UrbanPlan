@@ -9,7 +9,7 @@ Version: 0.0.0.1 alpha
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: urbanplan
-Tags: blog, responsive, clean, minimal, sidebar, urban, custom admin options
+Tags: blog, responsive, minimal, sidebar, urban, custom admin options
 */
 html {
   font-family: sans-serif;
@@ -485,10 +485,10 @@ body {
 
 .wrap {
   margin-left: auto;
-  margin-right: auto;
-  max-width: 700px;
-  padding-left: 2em;
-  padding-right: 2em; }
+  margin-right: auto; }
+
+.site-content {
+  margin-top: 50px; }
 
 header.site-header {
   position: fixed;
@@ -523,13 +523,118 @@ header.site-header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between; }
-  header.site-header .logo {
+    justify-content: space-between;
+    height: inherit; }
+  header.site-header .site-title {
     display: flex;
     margin: auto 0 auto 10px; }
-    header.site-header .logo a {
+    header.site-header .site-title a {
       color: white;
       vertical-align: middle; }
+
+article.post {
+  display: flex;
+  flex-direction: column; }
+  article.post .post-header {
+    display: flex;
+    flex-direction: column;
+    order: 1; }
+    article.post .post-header h1, article.post .post-header h2 {
+      padding: 0 5px; }
+    article.post .post-header p {
+      padding: 0 5px; }
+  article.post .cat-links {
+    padding: 0 5px; }
+    article.post .cat-links a {
+      display: inline-block;
+      margin: 0;
+      border-bottom: 1px solid #192d67; }
+      article.post .cat-links a:hover {
+        border-bottom: 1px solid #52259b; }
+  article.post .post-content {
+    display: flex;
+    flex-direction: column;
+    order: 3;
+    margin-top: 1.5em;
+    word-break: break-word;
+    word-wrap: break-word; }
+    article.post .post-content a:not([class]) {
+      text-decoration: underline; }
+    article.post .post-content a:not([class]):hover {
+      text-decoration: none; }
+    article.post .post-content p {
+      padding: 0 5px; }
+    article.post .post-content p + p {
+      margin-top: .5em; }
+    article.post .post-content h1, article.post .post-content h2, article.post .post-content h3, article.post .post-content h4, article.post .post-content h5 {
+      padding: 5px 5px 8px 5px; }
+    article.post .post-content iframe {
+      max-width: 100%;
+      margin: 1em 0; }
+    article.post .post-content img {
+      position: relative;
+      display: block;
+      margin: .5em auto 1.5em auto;
+      max-width: 100%;
+      width: calc(100% - 10px);
+      height: auto;
+      background-color: #d9dcd6;
+      line-height: 2;
+      text-align: center;
+      font-size: .9rem; }
+      article.post .post-content img:before {
+        content: "Sorry, the image below is broken :(";
+        display: block;
+        margin-bottom: .5rem; }
+      article.post .post-content img:after {
+        content: "url: " attr(src) "";
+        display: block; }
+  article.post .post-featured-img figure {
+    position: relative;
+    margin: 0 0 1.5em;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+    overflow: hidden; }
+    article.post .post-featured-img figure:before {
+      content: '';
+      position: absolute;
+      z-index: 100;
+      top: 55%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, transparent 50%, #2f6690 100%);
+      opacity: 1; }
+  article.post .post-featured-img img {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0; }
+  article.post .tags-links {
+    display: flex;
+    flex-wrap: wrap;
+    order: 4;
+    margin: 5px 0;
+    padding: 0 5px;
+    width: 100%; }
+    article.post .tags-links a {
+      display: inline-block;
+      border: none;
+      border-radius: 3px;
+      margin-right: .2em;
+      margin-bottom: .4em;
+      padding: 3px 10px;
+      background-color: #d9dcd6;
+      font-size: 0.889em;
+      color: rgba(0, 0, 0, 0.8); }
+      article.post .tags-links a:hover, article.post .tags-links a:focus, article.post .tags-links a:active {
+        color: rgba(13, 13, 13, 0.8);
+        background-color: #ccd0c8; }
 
 img,
 video {
@@ -555,6 +660,28 @@ object {
   top: -0.0625em;
   vertical-align: middle;
   width: 1em; }
+
+@media only screen and (min-device-width: 768px) {
+  body {
+    font-size: 1.167em; }
+  article.post {
+    line-height: 1.833em;
+    letter-spacing: 0em; }
+    article.post .post-header {
+      max-width: 38em;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 10px; }
+    article.post .post-content {
+      max-width: 38em;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 10px; }
+    article.post .tags-links {
+      max-width: 38em;
+      width: 100%;
+      margin: 1.5em auto 0;
+      padding: 0 10px; } }
 
 @media print {
   body {

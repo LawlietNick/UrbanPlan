@@ -8,7 +8,7 @@ Version: 0.0.0.1 alpha
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: urbanplan
-Tags: blog, responsive, clean, minimal, sidebar, urban, custom admin options
+Tags: blog, responsive, minimal, sidebar, urban, custom admin options
 */
 
 //--------------------------------------------------------------
@@ -231,6 +231,9 @@ td:last-child {
 
 
 
+// 13.4 Posts
+@import 'partials/posts';
+
 // -------------------------------------------------------------
 // 16.0 Media
 // -------------------------------------------------------------
@@ -240,6 +243,7 @@ td:last-child {
 // -------------------------------------------------------------
 // 19.0 Media Queries
 // -------------------------------------------------------------
+@import 'partials/media_queries';
 
 
 

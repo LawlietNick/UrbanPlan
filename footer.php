@@ -15,6 +15,14 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 	</footer><!-- #colophon -->
+
+	<nav id="site-navigation" class="main-navigation" role="navigation">
+
+			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+			
+	</nav><!-- #site-navigation -->
+
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
